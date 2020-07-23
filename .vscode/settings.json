@@ -1,0 +1,5 @@
+{
+  "cSpell.words": ["next", "next payable", "payable"],
+  "prettier.singleQuote": true,
+  "editor.formatOnSave": true
+}

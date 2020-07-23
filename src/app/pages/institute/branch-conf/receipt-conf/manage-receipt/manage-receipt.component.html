@@ -1,0 +1,38 @@
+<nb-card>
+  <nb-card-header>
+    <button class="btn btn-yellow-black float-right" (click)="onClick()" [hidden]="receipts">
+      Add Receipt
+    </button>
+
+    <p style="color: black; font-weight: bold;">Manage Receipt</p>
+  </nb-card-header>
+  <nb-card-body>
+    <table *ngIf="receipts; else noReceipt">
+      <thead>
+        <tr>
+          <th>Business Name</th>
+          <th>Address</th>
+          <th>GST Number</th>
+          <th>Terms & Conditions</th>
+          <th>Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ receipts.businessName }}</td>
+          <td>{{ receipts.address }}</td>
+          <td>{{ receipts.gstNumber }}</td>
+          <td>{{ receipts.termsAndCondition }}</td>
+          <td>{{ receipts.fee }}</td>
+          <td class="text-right">
+            <button class="mr-3 mb-2 btn btn-yellow" (click)="edit(instituteId)">Edit</button>
+            <button class="mb-2" nbButton status="danger" (click)="delete(instituteId)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #noReceipt><p class="mt-5 mb-5 text-center">No Record Found</p></ng-template>
+  </nb-card-body>
+</nb-card>
