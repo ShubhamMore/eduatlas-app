@@ -1,41 +1,39 @@
 <ng-container *ngIf="display">
-  <div class="row">
-    <div class="col-12">
-      <nb-card>
-        <nb-card-header>
-          <div class="instituteBox">
-            <span
-              ><img
-                class="my-auto float-left"
-                [src]="myInstitute.institute.basicInfo.logo.secure_url"
-                width="40px"
-                height="40px"
-                style="border-radius: 100%; border: 1px solid #000;"
-            /></span>
-            <span
-              class="ml-3 my-auto verticalCenter"
-              style="color: #ffd500; font-size: 30px; padding-top: 10px; font-weight: bold;"
-            >
-              {{ myInstitute.institute.basicInfo.name | uppercase }}
-            </span>
-            <span class="planDiv">{{ myInstitute.institute.currentPlan | uppercase }}</span>
+  <div style="width: 100%;">
+    <nb-card>
+      <nb-card-header>
+        <div class="instituteBox">
+          <span
+            ><img
+              class="my-auto float-left"
+              [src]="myInstitute.institute.basicInfo.logo.secure_url"
+              width="40px"
+              height="40px"
+              style="border-radius: 100%; border: 1px solid #000;"
+          /></span>
+          <span
+            class="ml-3 my-auto verticalCenter"
+            style="color: #ffd500; font-size: 30px; padding-top: 10px; font-weight: bold;"
+          >
+            {{ myInstitute.institute.basicInfo.name | uppercase }}
+          </span>
+          <span class="planDiv">{{ myInstitute.institute.currentPlan | uppercase }}</span>
 
-            <span class="float-right mr-3">
-              <span>Total Students: {{ totalStudents }}</span
-              ><br />
-              <span>Total Batches: {{ totalBatches }}</span>
-            </span>
-          </div>
-        </nb-card-header>
-      </nb-card>
-    </div>
+          <span class="float-right mr-3">
+            <span>Total Students: {{ totalStudents }}</span
+            ><br />
+            <span>Total Batches: {{ totalBatches }}</span>
+          </span>
+        </div>
+      </nb-card-header>
+    </nb-card>
   </div>
 
   <div class="row">
     <div class="col-sm-6">
       <nb-card class="card-height-1">
         <nb-card-body>
-          <nb-tabset fullWidth>
+          <nb-tabset>
             <nb-tab
               tabTitle="UPCOMING CLASSES"
               *ngIf="role === 'institute' || role === 'Manager' || role === 'Teacher'"
@@ -168,7 +166,7 @@
           <nb-card class="card-height-2">
             <nb-card-body>
               <div class="image-container">
-                <img class="inst-logo" src="../../../assets/img/add-user.png" alt="Institute" />
+                <img class="inst-logo" src="assets/img/add-user.png" alt="Institute" />
               </div>
               <br />
               <button
@@ -188,7 +186,7 @@
           <nb-card class="card-height-2">
             <nb-card-body>
               <div class="image-container">
-                <img class="inst-logo" src="../../../assets/img/rupee.png" alt="Institute" />
+                <img class="inst-logo" src="assets/img/rupee.png" alt="Institute" />
               </div>
               <br />
               <button
@@ -205,7 +203,7 @@
           <nb-card class="card-height-2">
             <nb-card-body>
               <div class="image-container">
-                <img class="inst-logo" src="../../../assets/img/home-yellow.png" alt="Institute" />
+                <img class="inst-logo" src="assets/img/home-yellow.png" alt="Institute" />
               </div>
               <br />
               <button
@@ -222,7 +220,7 @@
           <nb-card class="card-height-2">
             <nb-card-body>
               <div class="image-container">
-                <img class="inst-logo" src="../../../assets/img/calendar.png" alt="Institute" />
+                <img class="inst-logo" src="assets/img/calendar.png" alt="Institute" />
               </div>
               <br />
               <button
@@ -259,7 +257,13 @@
               <tbody>
                 <tr *ngFor="let announcement of announcements; let i = index">
                   <td>{{ i + 1 }}</td>
-                  <td>{{ announcement.title }}</td>
+                  <td>
+                    <a
+                      class="pointer announcement-title"
+                      (click)="goToAnnouncement(announcement._id)"
+                      ><u>{{ announcement.title }}</u></a
+                    >
+                  </td>
                   <td>{{ getDate(announcement.date) }}</td>
                   <td>
                     <a
@@ -294,7 +298,7 @@
           <p class="font-weight-bold">
             SMS BALANCE
           </p>
-          <h2>0 SMS Pending</h2>
+          <h2>{{ myInstitute.institute.smsCount }} SMS Pending</h2>
         </nb-card-body>
       </nb-card>
     </div>

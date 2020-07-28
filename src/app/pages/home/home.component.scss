@@ -16,6 +16,7 @@ nb-card-header {
 .small {
   display: block;
 }
+
 #date {
   width: 26%;
   float: right;
@@ -38,4 +39,10 @@ nb-card-header {
 
 .inactive {
   background-color: #ff3d71;
+}
+
+@media only screen and (max-width: 600px) {
+  nb-card {
+    margin-bottom: 1.875rem !important;
+  }
 }

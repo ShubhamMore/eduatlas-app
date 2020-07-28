@@ -1,33 +1,47 @@
 <nb-card *ngIf="institutes.length > 0; else no_institute">
   <nb-card-body>
-    <div class="row">
-      <div class="col-sm-2 text-center"><b>Institute/Branch Name</b></div>
-      <div class="col-sm-3 text-center"><b>Institute Address</b></div>
-      <div class="col-sm-2 text-center"><b>Institute Contact</b></div>
-    </div>
-
-    <div class="row mt-3" *ngFor="let i of institutes">
-      <div class="col-sm-2 text-center">
-        {{ i.basicInfo.name }}
-      </div>
-
-      <div class="col-sm-3 text-center">
-        {{ i.address.addressLine }} {{ i.address.locality }} {{ i.address.city }}
-        {{ i.address.pincode }}
-      </div>
-
-      <div class="col-sm-2 text-center">
-        {{ i.basicInfo.instituteContact }}
-      </div>
-
-      <div class="col-sm-1"></div>
-      <div class="col-sm-4">
-        <button class="mr-3" nbButton status="primary" (click)="getInstitute(i._id)">Manage</button>
-        <button class="mr-3 btn btn-yellow" (click)="updateInstitute(i._id)">
-          Edit
-        </button>
-        <button class="mr-3" nbButton status="danger" (click)="delete(i._id)">Delete</button>
-      </div>
+    <div class="table-responsive">
+      <table class="table table-borderless">
+        <thead>
+          <th>Institute/Branch Name</th>
+          <th>Institute Address</th>
+          <th>Institute Contact</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of institutes">
+            <td>{{ i.basicInfo.name }}</td>
+            <td>
+              {{ i.address.addressLine }} {{ i.address.locality }} {{ i.address.city }}
+              {{ i.address.pincode }}
+            </td>
+            <td>{{ i.basicInfo.instituteContact }}</td>
+            <td>
+              <button class="mr-3" nbButton status="primary" (click)="getInstitute(i._id)">
+                <span class="btnText">
+                  Manage
+                </span>
+                <span class="btnIcon">
+                  <i class="fa fa-gear" aria-hidden="true"></i>
+                </span>
+              </button>
+              <button class="mr-3 mt-1 btn btn-yellow" (click)="updateInstitute(i._id)">
+                <span class="btnText">
+                  Edit
+                </span>
+                <span class="btnIcon">
+                  <i class="fa fa-edit" aria-hidden="true"></i>
+                </span>
+              </button>
+              <button class="mr-3 mt-1" nbButton status="danger" (click)="delete(i._id)">
+                <span class="btnText">Delete </span>
+                <span class="btnIcon">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </nb-card-body>
 </nb-card>
@@ -35,7 +49,7 @@
   <nb-card>
     <nb-card-body>
       <div class="text-center">
-        <img src="../../../assets/img/institute.png" width="100px" height="100px" />
+        <img src="assets/img/institute.png" width="100px" height="100px" />
         <h3 class="mt-4">NO INSTITUTE ADDED</h3>
         <small *ngIf="showAddInstituteBtn"
           >Click on add Institute Button to create other branches</small

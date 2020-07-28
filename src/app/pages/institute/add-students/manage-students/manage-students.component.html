@@ -37,12 +37,15 @@
     </div>
   </nb-card-header>
   <nb-card-body>
-    <table *ngIf="students.length > 0 && !hideHeaders; else noStudents">
+    <table
+      class="table table-borderless"
+      *ngIf="students.length > 0 && !hideHeaders; else noStudents"
+    >
       <thead>
         <tr>
           <th>Name</th>
           <th>Roll No.</th>
-          <th>Contact</th>
+          <th class="hideMobile">Contact</th>
           <!-- <th>Course Name</th> -->
         </tr>
       </thead>
@@ -51,7 +54,7 @@
         <tr *ngFor="let student of students; let i = index" [hidden]="student.filterOut">
           <td>{{ student.basicDetails.name }}</td>
           <td>{{ student.instituteDetails.rollNumber }}</td>
-          <td>{{ student.basicDetails.studentContact }}</td>
+          <td class="hideMobile">{{ student.basicDetails.studentContact }}</td>
           <!-- <td>{{ student.courseDetails.course }}</td> -->
           <td>
             <button
@@ -60,14 +63,24 @@
               status="primary"
               (click)="view(student.eduAtlasId, student.instituteDetails.courseId)"
             >
-              View
+              <span class="btnText">
+                View
+              </span>
+              <span class="btnIcon">
+                <i class="fa fa-eye" aria-hidden="true"></i>
+              </span>
             </button>
             <button
               type="button"
               class="btn btn-yellow mr-2 mb-2"
               (click)="edit(student.eduAtlasId, student.instituteDetails.courseId)"
             >
-              Edit
+              <span class="btnIcon">
+                <i class="fa fa-edit" aria-hidden="true"></i>
+              </span>
+              <span class="btnText">
+                Edit
+              </span>
             </button>
             <button
               class="mr-2 mb-2"
@@ -82,7 +95,13 @@
                 )
               "
             >
-              Delete
+              <span class="btnText">
+                Delete
+              </span>
+
+              <span class="btnIcon">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </span>
             </button>
           </td>
         </tr>

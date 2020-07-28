@@ -108,7 +108,7 @@ export class AddInstituteComponent implements OnInit {
         currency: 'INR',
         name: 'eduatlas',
         description: 'Test Transaction',
-        image: '../../../../assets/img/EA FAVI.png',
+        image: 'assets/img/EA FAVI.png',
         // tslint:disable-next-line: max-line-length
         order_id: '', // This is a sample Order ID. Pass the `id` obtained in the response of Step 1 order_9A33XWu170gUtm
         handler: (response: any) => {
