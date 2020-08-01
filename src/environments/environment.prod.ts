@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   razorpayKeyId: 'rzp_test_EVmv0tdRskXUYb',
-  server: '',
-  SOCKET_ENDPOINT: '/eduatlas-chat',
+  server: 'https://lms.eduatlas.in',
+  SOCKET_ENDPOINT: 'https://lms.eduatlas.in/eduatlas-chat',
 };
