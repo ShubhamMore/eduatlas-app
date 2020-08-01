@@ -47,6 +47,7 @@
                   <td>
                     <a
                       [href]="announcement.announcements.attachment.secure_url"
+                      target="_system"
                       *ngIf="announcement.announcements.attachment.secure_url; else noFile"
                     >
                       {{ announcement.announcements.attachment.file_name }} </a

@@ -84,7 +84,7 @@ export class OnlineeClassComponent implements OnInit {
   joinMeeting(joinUrl: string) {
     window.open(
       joinUrl,
-      'Zoom',
+      '_system',
       'scrollbars=yes,resizable=yes,status=no,location=no,toolbar=no,menubar=no',
     );
   }

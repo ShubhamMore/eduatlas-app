@@ -1,13 +1,13 @@
 <!-- <ngx-institute-header></ngx-institute-header> -->
 
-<nb-card *ngIf="display">
+<nb-card *ngIf="display" class="mobileFullHeight">
   <nb-card-header>
     <button class="btn btn-yellow float-right" (click)="manageAnnouncement()">
       Back
     </button>
     <h3>{{ announcement.title }}</h3>
     <div *ngIf="announcement.attachment">
-      <a [href]="announcement.attachment.secure_url" target="_blank">{{
+      <a [href]="announcement.attachment.secure_url" target="_system">{{
         announcement.attachment.file_name
       }}</a>
     </div>

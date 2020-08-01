@@ -44,6 +44,14 @@ export class ApiService {
     );
   }
 
+  getInstituteStorage(id: string) {
+    const url = `${environment.server}/institute/getInstituteStorage`;
+    return this.http.post(url, { id }).pipe(
+      tap((res: any) => {}),
+      catchError(this.handleError),
+    );
+  }
+
   addInstitute(institute: any) {
     const postData = new FormData();
     const data = {
@@ -314,6 +322,17 @@ export class ApiService {
     );
   }
 
+  //  SEND ATTENDANCE
+  sendAttendanceSms(data: any) {
+    return this.http
+      .post(environment.server + '/institute/attendance/sendAttendanceSMS', data)
+      .pipe(
+        tap((res) => {}),
+        map((res) => res),
+        catchError(this.handleError),
+      );
+  }
+
   //  UPDATE STUDENT PERSONAL DETAILS
   updateStudentPersonalDetails(
     id: string,
@@ -460,7 +479,7 @@ export class ApiService {
         transDetails: curInstallment.transDetails,
         paymentDate: curInstallment.paymentDate,
         amountPending: curInstallment.amountPending,
-        receiptLink: curInstallment.receiptLink,
+        receipt: curInstallment.receipt,
       };
       data.installments.push(installment);
     });
@@ -966,6 +985,7 @@ export class ApiService {
       catchError(this.handleError),
     );
   }
+
   getOneMeeting(data) {
     const url = `${environment.server}/institute/zoom/getOneMeeting`;
     return this.http.post(url, data).pipe(
@@ -973,6 +993,7 @@ export class ApiService {
       catchError(this.handleError),
     );
   }
+
   getMeetingByBatch(data: any) {
     const url = `${environment.server}/institute/zoom/getMeetingsFromZoom`;
     return this.http.post(url, data).pipe(
@@ -1347,9 +1368,12 @@ export class ApiService {
       );
   }
 
-  deleteStudyMaterial(id: any) {
+  deleteStudyMaterial(id: any, instituteId: string) {
     return this.http
-      .post<any>(`${environment.server}/institute/studyMaterial/deleteStudyMaterial`, { _id: id })
+      .post<any>(`${environment.server}/institute/studyMaterial/deleteStudyMaterial`, {
+        _id: id,
+        instituteId,
+      })
       .pipe(
         tap((res) => {}),
         catchError((err) => this.handleError(err)),

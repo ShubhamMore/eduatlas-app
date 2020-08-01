@@ -1,5 +1,5 @@
 <ngx-student-institute-header></ngx-student-institute-header>
-<nb-card *ngIf="display">
+<nb-card *ngIf="display" class="mobileFullHeight">
   <nb-card-header>
     <div class="row">
       <div class="col-md-9">
@@ -37,7 +37,9 @@
             <td>{{ material.title }}</td>
             <td>{{ material.category }}</td>
             <td>
-              <a [href]="material.file.secure_url" target="_blank">{{ material.file.file_name }}</a>
+              <a [href]="material.file.secure_url" target="_system">{{
+                material.file.file_name
+              }}</a>
             </td>
           </tr>
         </tbody>

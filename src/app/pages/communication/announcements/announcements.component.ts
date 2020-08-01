@@ -1,5 +1,6 @@
+import { editorConfig } from './../../../config/editor.config';
 import { NbToastrService } from '@nebular/theme';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
@@ -22,7 +23,13 @@ export class AnnouncementsComponent implements OnInit {
   batches: any[];
   institute: any;
   display = false;
-  routerId: string;
+  InstituteId: string;
+
+  editorConfig = editorConfig;
+
+  categoryError: boolean;
+  batchError: boolean;
+
   constructor(
     private fb: FormBuilder,
     private toastrService: NbToastrService,
@@ -33,23 +40,25 @@ export class AnnouncementsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.routerId = this.active.snapshot.paramMap.get('id');
+    this.InstituteId = this.active.snapshot.paramMap.get('id');
     this.active.queryParams.subscribe((data) => {
       this.announcementId = data.announcement;
       this.edit = data.edit;
       this.repeat = data.repeat;
     });
     this.batches = [];
+    this.categoryError = false;
+    this.batchError = false;
     this.announcementForm = this.fb.group({
-      title: [''],
-      date: [''],
+      title: ['', Validators.required],
+      date: ['', Validators.required],
       text: [''],
-      instituteId: [this.routerId],
+      instituteId: [this.InstituteId],
       batchCodes: [],
       categories: [],
     });
-    this.getInstitute(this.routerId);
-    this.getAnnouncements(this.routerId);
+    this.getInstitute(this.InstituteId);
+    this.getAnnouncements(this.InstituteId);
   }
 
   getBatches(id: any) {
@@ -96,7 +105,7 @@ export class AnnouncementsComponent implements OnInit {
   getInstitute(id: any) {
     this.api.getInstitute(id).subscribe((data: any) => {
       this.institute = data.institute;
-      this.getBatches(this.routerId);
+      this.getBatches(this.InstituteId);
     });
   }
 
@@ -111,6 +120,17 @@ export class AnnouncementsComponent implements OnInit {
   }
 
   onSubmit() {
+    this.announcementForm.markAllAsTouched();
+    if (this.announcementForm.invalid) {
+      this.showToast('top-right', 'danger', 'Fill announcement fields Correctly');
+      return;
+    } else if (this.announcementForm.value.batchCodes.length < 1) {
+      this.showToast('top-right', 'danger', 'Select at least One Batch');
+      return;
+    } else if (this.announcementForm.value.categories.length < 1) {
+      this.showToast('top-right', 'danger', 'Select at least One Category');
+      return;
+    }
     const announce = new FormData();
     announce.append('title', this.announcementForm.value.title);
     announce.append('date', this.announcementForm.value.date);
@@ -156,8 +176,24 @@ export class AnnouncementsComponent implements OnInit {
     }
   }
 
+  onSelectBatch(batches: any[]) {
+    if (batches.length === 0) {
+      this.batchError = true;
+    } else {
+      this.batchError = false;
+    }
+  }
+
+  onSelectCategory(categories: any[]) {
+    if (categories.length === 0) {
+      this.categoryError = true;
+    } else {
+      this.categoryError = false;
+    }
+  }
+
   onDelete(id: any) {
-    this.announceService.deleteAnnouncement(id).subscribe(
+    this.announceService.deleteAnnouncement(id, this.InstituteId).subscribe(
       (res) => {
         const i = this.announcements.findIndex((e: any) => e._id === id);
 
@@ -165,7 +201,7 @@ export class AnnouncementsComponent implements OnInit {
           this.announcements.splice(i, 1);
           this.showToast('top-right', 'success', 'Announcement Deleted Successfully');
         }
-        this.getAnnouncements(this.routerId);
+        this.getAnnouncements(this.InstituteId);
       },
       (err) => {
         this.showToast('top-right', 'danger', 'Announcement Deletion Failed');

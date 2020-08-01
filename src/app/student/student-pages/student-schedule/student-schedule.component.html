@@ -1,5 +1,5 @@
 <ngx-student-institute-header></ngx-student-institute-header>
-<nb-card *ngIf="display">
+<nb-card *ngIf="display" class="mobileFullHeight">
   <nb-card-header style="background-color: #ffd500;">
     <div class="row">
       <div class="col-sm-9">
@@ -37,7 +37,7 @@
                   View
                 </span>
                 <span class="btnIcon">
-                  <i class="fa fa-eye" aria-hidden="true"></i>
+                  <nb-icon icon="eye-outline"></nb-icon>
                 </span>
               </button>
               <p class="">
@@ -60,7 +60,7 @@
                         <span class="month">{{ getMonth(day.date) }}</span>
                       </div>
                     </td>
-                    <td>
+                    <td class="text-nowrap">
                       <div class="meeting-details">
                         <div class="detail1">Date: {{ getScheduleDate(day.date) }}</div>
                         <div class="detail1">
@@ -68,7 +68,7 @@
                         </div>
                       </div>
                     </td>
-                    <td>
+                    <td class="text-nowrap">
                       <div class="meeting-details">
                         <div class="detail1">Topic: {{ day.topic }}</div>
                         <div class="detail1">
@@ -76,7 +76,7 @@
                         </div>
                       </div>
                     </td>
-                    <td>
+                    <td class="text-nowrap">
                       <div class="meeting-details">
                         <div class="detail1">Course: {{ schedule.courseId }}</div>
                         <div class="detail2">Batch: {{ schedule.batchId }}</div>

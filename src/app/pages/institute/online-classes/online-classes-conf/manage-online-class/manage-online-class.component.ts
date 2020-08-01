@@ -76,7 +76,7 @@ export class ManageOnlineClassComponent implements OnInit {
   goLive(startUrl: string) {
     window.open(
       startUrl,
-      'Zoom',
+      '_system',
       'scrollbars=yes,resizable=yes,status=no,location=no,toolbar=no,menubar=no',
     );
   }
@@ -118,10 +118,9 @@ export class ManageOnlineClassComponent implements OnInit {
       .subscribe(
         (res: any) => {
           this.meetings = res;
-          this.showToast('top right', 'success', 'Meeting Deleted Successfully');
         },
         (err) => {
-          this.showToast('top right', 'danger', err.err.message);
+          this.showToast('top-right', 'danger', err.err.message);
         },
       );
   }

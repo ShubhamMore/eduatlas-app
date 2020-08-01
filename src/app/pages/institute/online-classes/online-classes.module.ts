@@ -18,10 +18,19 @@ import {
   NbMenuModule,
   NbAccordionModule,
   NbListModule,
+  NbTabsetModule,
+  NbIconModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { OnlineClassesConfComponent } from './online-classes-conf/online-classes-conf.component';
 import { OnlineClassesUpgradeComponent } from './online-classes-upgrade/online-classes-upgrade.component';
+import { OnlineClassLinksComponent } from './online-class-links/online-class-links.component';
+// tslint:disable-next-line: max-line-length
+import { AddOnlineClassLinkComponent } from './online-class-links/add-online-class-link/add-online-class-link.component';
+import { UploadClassRecordingComponent } from './upload-class-recording/upload-class-recording.component';
+import { UtilitiesComponent } from './utilities/utilities.component';
+import { ViewClassRecordingComponent } from './upload-class-recording/view-class-recording/view-class-recording.component';
+import { PlayVideoRecordingComponent } from './upload-class-recording/view-class-recording/play-video-recording/play-video-recording.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +39,12 @@ import { OnlineClassesUpgradeComponent } from './online-classes-upgrade/online-c
     ManageOnlineClassComponent,
     AddOnlineClassComponent,
     OnlineClassesUpgradeComponent,
+    OnlineClassLinksComponent,
+    AddOnlineClassLinkComponent,
+    ViewClassRecordingComponent,
+    UploadClassRecordingComponent,
+    UtilitiesComponent,
+    PlayVideoRecordingComponent,
     // InstituteHeaderComponent,
   ],
   imports: [
@@ -37,6 +52,7 @@ import { OnlineClassesUpgradeComponent } from './online-classes-upgrade/online-c
     OnlineClassesRoutingModule,
     ReactiveFormsModule,
     NbCardModule,
+    NbTabsetModule,
     NbLayoutModule,
     FormsModule,
     NbInputModule,
@@ -48,6 +64,7 @@ import { OnlineClassesUpgradeComponent } from './online-classes-upgrade/online-c
     NbAccordionModule,
     NbEvaIconsModule,
     NbListModule,
+    NbIconModule,
   ],
 })
 export class OnlineClassesModule {}

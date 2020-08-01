@@ -154,7 +154,7 @@
     </div>
   </nb-card-header>
   <nb-card-body>
-    <div class="table-responsive" *ngIf="materials.length > 0; else noMaterial">
+    <div *ngIf="materials.length > 0; else noMaterial">
       <table class="table table-borderless">
         <thead>
           <tr>
@@ -172,7 +172,9 @@
             <td>{{ material.title }}</td>
             <td>{{ material.category }}</td>
             <td>
-              <a [href]="material.file.secure_url" target="_blank">{{ material.file.file_name }}</a>
+              <a [href]="material.file.secure_url" target="_system">{{
+                material.file.file_name
+              }}</a>
             </td>
             <td>{{ material.batches.join(',') }}</td>
             <td>
@@ -182,7 +184,13 @@
                 nbButton
                 (click)="editMaterial(i)"
               >
-                EDIT
+                <span class="btnText">
+                  Edit
+                </span>
+
+                <span class="btnIcon">
+                  <nb-icon icon="edit-outline"></nb-icon>
+                </span>
               </button>
               <button
                 type="button"
@@ -191,7 +199,12 @@
                 status="danger"
                 (click)="deleteMaterial(material._id)"
               >
-                DELETE
+                <span class="btnText">
+                  Delete
+                </span>
+                <span class="btnIcon">
+                  <nb-icon icon="trash-2-outline"></nb-icon>
+                </span>
               </button>
             </td>
           </tr>

@@ -1,5 +1,5 @@
 <ngx-student-institute-header></ngx-student-institute-header>
-<nb-card *ngIf="display">
+<nb-card *ngIf="display" class="mobileFullHeight">
   <nb-card-header>
     <div class="row">
       <div class="col-md-9">
@@ -49,7 +49,7 @@
                     <a
                       [href]="item.attachment.secure_url"
                       *ngIf="item.attachment"
-                      target="_blank"
+                      target="_system"
                       >{{ item.attachment.file_name }}</a
                     >
                     <span *ngIf="!item.attachment">--</span>
@@ -60,7 +60,7 @@
                         View
                       </span>
                       <span class="btnIcon">
-                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <nb-icon icon="eye-outline"></nb-icon>
                       </span>
                     </button>
                   </div>

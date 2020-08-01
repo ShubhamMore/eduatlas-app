@@ -1,12 +1,12 @@
 <!-- <ngx-institute-header></ngx-institute-header> -->
 
-<nb-card *ngIf="display">
+<nb-card *ngIf="display" class="mobileFullHeight">
   <nb-card-header>
     <div class="row">
       <div class="col-sm-6">
         <p style="color: black; font-weight: bold;">Scheduled Mentoring</p>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-3 pt-3">
         <nb-select
           placeholder="Select Course"
           status="basic"
@@ -54,7 +54,7 @@
                 Schedule
               </span>
               <span class="btnIcon">
-                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <nb-icon icon="calendar-outline"></nb-icon>
               </span>
             </button>
           </td>

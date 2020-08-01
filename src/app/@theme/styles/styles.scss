@@ -73,6 +73,36 @@
 .btnIcon {
   display: none;
 }
+
+.input-error {
+  color: #f00;
+  font-size: 80%;
+}
+
+/*--SCROLL BAR--*/
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: transparent;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #c1c1c1;
+}
+
 @media only screen and (max-width: 600px) {
   nb-layout-column {
     padding: 0px !important;
@@ -80,13 +110,15 @@
   nb-card {
     margin-bottom: 0px !important;
   }
+  nb-card-header h3 {
+    font-size: 80% !important;
+  }
   nb-card-body {
     padding: 1rem 0rem;
   }
-  table {
-    height: 80vh;
+  .table-responsive {
+    height: 82vh !important;
   }
-
   .nb-theme-default nb-layout .scrollable-container::-webkit-scrollbar {
     width: 0rem !important;
     height: 0rem !important;
@@ -118,6 +150,9 @@
     border-radius: 0.25rem;
     font-size: 0.875rem;
     line-height: 1rem;
+  }
+  .mobileFullHeight {
+    height: 85vh;
   }
   table tr td:last-child {
     white-space: nowrap;

@@ -60,7 +60,7 @@ export class OnlineClassSettingsComponent implements OnInit {
         this.api.getZoomAuth({ userId: res.user_id }).subscribe((data: any) => {
           window.open(
             data.authLink,
-            '_blank',
+            '_system',
             'toolbar,scrollbars,resizable,top=500,left=500,width=400,height=400',
           );
         });
