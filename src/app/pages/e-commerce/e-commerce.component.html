@@ -267,8 +267,8 @@
                   <td>{{ getDate(announcement.date) }}</td>
                   <td>
                     <a
-                      [href]="announcement.attachment.secure_url"
-                      target="_system"
+                      href="#"
+                      (click)="openUrl(announcement.attachment.secure_url)"
                       *ngIf="announcement.attachment.secure_url; else noFile"
                     >
                       {{ announcement.attachment.file_name }} </a

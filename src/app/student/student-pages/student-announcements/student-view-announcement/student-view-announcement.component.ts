@@ -51,6 +51,10 @@ export class StudentViewAnnouncementComponent implements OnInit {
     this.location.back();
   }
 
+  openUrl(url: any) {
+    window.open(url, '_system');
+  }
+
   showToast(position: any, status: any, message: any) {
     this.toastrService.show(status, message, {
       position,

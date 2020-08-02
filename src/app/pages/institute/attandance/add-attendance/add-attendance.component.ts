@@ -212,6 +212,10 @@ export class AddAttendanceComponent implements OnInit {
     });
   }
 
+  openUrl(url: any) {
+    window.open(url, '_system');
+  }
+
   onSubmit() {
     const attendanceRequest = {
       date: this.attandanceform.get('date').value,

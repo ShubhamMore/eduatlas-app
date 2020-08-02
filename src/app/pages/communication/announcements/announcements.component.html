@@ -159,9 +159,12 @@
               <div [innerHTML]="item.text | safeHtml"></div>
             </td>
             <td>
-              <a [href]="item.attachment.secure_url" target="_system" *ngIf="item.attachment">{{
-                item.attachment.file_name
-              }}</a>
+              <a
+                class="pointer"
+                (click)="openUrl(item.attachment.secure_url)"
+                *ngIf="item.attachment"
+                >{{ item.attachment.file_name }}</a
+              >
             </td>
             <div>
               <button nbButton status="danger" (click)="onDelete(item._id)">

@@ -105,6 +105,10 @@ export class StudentDashboardComponent implements OnInit {
     return time;
   }
 
+  openUrl(url: any) {
+    window.open(url, '_system');
+  }
+
   createDate(date: string) {
     return date.split('-').reverse().join('-');
   }

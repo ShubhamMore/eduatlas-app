@@ -150,6 +150,10 @@ export class OnlineClassesUpgradeComponent implements OnInit {
     );
   }
 
+  openUrl(url: any) {
+    window.open(url, '_system');
+  }
+
   activateInstitute(id: string, orderId: string, ReceiptId: string) {
     const paymentDetails = {
       amount: this.paymentDetails.amount,

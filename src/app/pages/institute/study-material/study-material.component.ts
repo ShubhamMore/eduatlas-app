@@ -153,6 +153,10 @@ export class StudyMaterialComponent implements OnInit {
     }
   }
 
+  openUrl(url: any) {
+    window.open(url, '_system');
+  }
+
   getStudyMaterial(data: any) {
     this.api.getStudyMaterials(data).subscribe(
       (res: any) => {

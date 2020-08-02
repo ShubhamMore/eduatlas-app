@@ -59,6 +59,10 @@ export class StudentAnnouncementsComponent implements OnInit {
     });
   }
 
+  openUrl(url: any) {
+    window.open(url, '_system');
+  }
+
   showToast(position: any, status: any, message: any) {
     this.toastrService.show(status, message, {
       position,

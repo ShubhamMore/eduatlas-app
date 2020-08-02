@@ -131,6 +131,10 @@ export class ECommerceComponent implements OnInit {
     });
   }
 
+  openUrl(url: any) {
+    window.open(url, '_system');
+  }
+
   createTime(time: string) {
     return time;
   }

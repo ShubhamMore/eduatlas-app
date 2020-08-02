@@ -127,6 +127,10 @@ export class CreateTestsScoreComponent implements OnInit {
     );
   }
 
+  openUrl(url: any) {
+    window.open(url, '_system');
+  }
+
   getStudents(instituteID: string, batchId: string, courseId: string) {
     this.api.getStudentsByBatch(instituteID, courseId, batchId).subscribe((res: any[]) => {
       this.students = res;

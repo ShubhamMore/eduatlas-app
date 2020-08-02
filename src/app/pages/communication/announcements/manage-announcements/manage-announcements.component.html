@@ -38,9 +38,9 @@
                   </td>
                   <td>
                     <a
-                      [href]="item.attachment.secure_url"
+                      href="#"
                       *ngIf="item.attachment"
-                      target="_system"
+                      (click)="openUrl(item.attachment.secure_url)"
                       >{{ item.attachment.file_name }}</a
                     >
                     <span *ngIf="!item.attachment">--</span>

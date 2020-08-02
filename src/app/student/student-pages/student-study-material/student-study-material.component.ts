@@ -46,6 +46,10 @@ export class StudentStudyMaterialComponent implements OnInit {
     this.getStudyMaterial({ instituteId: this.instituteId, batch: batchCode });
   }
 
+  openUrl(url: any) {
+    window.open(url, '_system');
+  }
+
   getStudyMaterial(data: any) {
     this.studentService.getStudyMaterialForStudent(data).subscribe(
       (res: any) => {

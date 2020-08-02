@@ -140,8 +140,8 @@
                 <td>
                   <a
                     class="receipt"
-                    [href]="installment.receipt.secureUrl"
-                    target="_system"
+                    href="#"
+                    (click)="openUrl(installment.receipt.secureUrl)"
                     *ngIf="installment.paidStatus === 'true' && installment.receipt.secureUrl"
                     >Receipt</a
                   >

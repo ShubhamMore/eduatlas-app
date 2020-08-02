@@ -63,6 +63,10 @@ export class ViewStudentComponent implements OnInit {
       });
   }
 
+  openUrl(url: any) {
+    window.open(url, '_system');
+  }
+
   edit() {
     this.router.navigate([`/pages/institute/add-students/${this.instituteId}/edit`], {
       queryParams: { student: this.studentEduId, course: this.courseId, edit: 'true' },

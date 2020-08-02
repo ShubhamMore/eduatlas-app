@@ -46,6 +46,10 @@ export class StudentHomeComponent implements OnInit {
     });
   }
 
+  openUrl(url: any) {
+    window.open(url, '_system');
+  }
+
   createTime(time: string) {
     return time;
   }

@@ -37,7 +37,7 @@
             <td>{{ material.title }}</td>
             <td>{{ material.category }}</td>
             <td>
-              <a [href]="material.file.secure_url" target="_system">{{
+              <a href="#" (click)="openUrl(material.file.secure_url)">{{
                 material.file.file_name
               }}</a>
             </td>

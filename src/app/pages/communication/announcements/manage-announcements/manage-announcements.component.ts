@@ -30,6 +30,10 @@ export class ManageAnnouncementsComponent implements OnInit {
     });
   }
 
+  openUrl(url: any) {
+    window.open(url, '_system');
+  }
+
   repeat(id: string) {
     this.router.navigate(['/pages/communication/add-announcements/', this.instituteId], {
       queryParams: { announcement: id, repeat: true },

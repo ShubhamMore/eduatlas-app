@@ -7,7 +7,7 @@
     </button>
     <h3>{{ announcement.title }}</h3>
     <div *ngIf="announcement.attachment">
-      <a [href]="announcement.attachment.secure_url" target="_system">{{
+      <a href="#" (click)="openUrl(announcement.attachment.secure_url)">{{
         announcement.attachment.file_name
       }}</a>
     </div>

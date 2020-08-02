@@ -67,6 +67,10 @@ export class StudentViewEnrollmentComponent implements OnInit {
     this.location.back();
   }
 
+  openUrl(url: any) {
+    window.open(url, '_system');
+  }
+
   // Show Toaster
   showToaster(position: any, status: any, message: any) {
     this.toasterService.show(status, message, {

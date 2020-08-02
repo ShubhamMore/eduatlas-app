@@ -72,6 +72,10 @@ export class AnnouncementsComponent implements OnInit {
     });
   }
 
+  openUrl(url: any) {
+    window.open(url, '_system');
+  }
+
   getAnnouncements(id: any) {
     this.announceService.getAnnouncements(id).subscribe((data: any) => {
       this.announcements = data;
