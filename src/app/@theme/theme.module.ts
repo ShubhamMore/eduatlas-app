@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
@@ -79,6 +79,7 @@ const PIPES = [CapitalizePipe, PluralPipe, RoundPipe, TimingPipe, NumberWithComm
   imports: [CommonModule, ...NB_MODULES],
   exports: [CommonModule, ...PIPES, ...COMPONENTS],
   declarations: [...COMPONENTS, ...PIPES],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders {

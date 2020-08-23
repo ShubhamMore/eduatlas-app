@@ -17,6 +17,7 @@ import { ApiService } from '../../../services/api.service';
 import { RoleAssignService } from '../../../services/role/role-assign.service';
 import { NbWindowService } from '@nebular/theme';
 import { SocketioService } from '../../../services/chat.service';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'ngx-header',
@@ -87,6 +88,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private windowService: NbWindowService,
     private chatService: SocketioService,
     private dialogService: NbDialogService,
+    private menu: MenuController,
   ) {
     this.instituteChangeSubscription = this.instituteService.selectedInstitute.subscribe(
       (instituteId: any) => {
@@ -308,9 +310,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   toggleSidebar(): boolean {
-    this.sidebarService.toggle(true, 'menu-sidebar');
-    this.layoutService.changeLayoutSize();
-
+    this.menu.toggle();
     return false;
   }
 

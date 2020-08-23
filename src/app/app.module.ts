@@ -39,6 +39,7 @@ import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { OtpComponent } from './authentication/otp/otp.component';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { TermsAndConditionsComponent } from './authentication/terms-and-conditions/terms-and-conditions.component';
+import { IonicModule } from '@ionic/angular';
 
 // import { HomeComponent } from './home/home.component';
 
@@ -83,6 +84,7 @@ import { TermsAndConditionsComponent } from './authentication/terms-and-conditio
       messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
     }),
     CoreModule.forRoot(),
+    IonicModule.forRoot(),
   ],
   entryComponents: [TermsAndConditionsComponent],
   bootstrap: [AppComponent],
