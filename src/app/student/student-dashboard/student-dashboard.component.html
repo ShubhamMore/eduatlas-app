@@ -1,29 +1,31 @@
 <ng-container *ngIf="display">
   <div style="width: 100%;">
-    <nb-card>
+    <nb-card style="margin-bottom: 0px !important;">
       <nb-card-header>
         <div class="instituteBox">
-          <span
-            ><img
-              class="my-auto float-left"
-              [src]="institute.basicInfo.logo.secure_url"
-              width="40px"
-              height="40px"
-              style="border-radius: 100%; border: 1px solid #000;"
-          /></span>
-          <span
-            class="ml-3 my-auto verticalCenter"
-            style="color: #ffd500; font-size: 30px; padding-top: 10px; font-weight: bold;"
-          >
-            {{ institute.basicInfo.name | uppercase }}
-          </span>
+          <div class="instituteNameLogo">
+            <span class="logo"
+              ><img
+                class="my-auto float-left"
+                [src]="institute.basicInfo.logo.secure_url"
+                width="40px"
+                height="40px"
+                style="border-radius: 100%; border: 1px solid #000;"
+            /></span>
+            <span
+              class="name"
+              style="color: #ffd500; font-size: 30px; padding-top: 10px; font-weight: bold;"
+            >
+              {{ institute.basicInfo.name | uppercase }}
+            </span>
+          </div>
         </div>
       </nb-card-header>
     </nb-card>
   </div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-sm-6">
       <nb-card class="card-height-1">
         <nb-card-header>
           <h5>ANNOUNCEMENTS</h5>
@@ -65,7 +67,7 @@
         </nb-card-body>
       </nb-card>
     </div>
-    <div class="col-md-6">
+    <div class="col-sm-6">
       <nb-card class="card-height-1">
         <nb-card-header>
           <h5>CLASS SCHEDULE</h5>

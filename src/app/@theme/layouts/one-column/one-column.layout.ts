@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
           <ion-title>Menu</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content padding>
+      <ion-content overflow-scroll="true">
         <div>
           <nb-sidebar class="menu-sidebar" tag="menu-sidebar">
             <ng-content select="nb-menu"></ng-content>

@@ -50,12 +50,12 @@
                   <nb-icon icon="checkmark-outline"></nb-icon>
                 </span>
               </button>
-              <button class="btn btn-yellow-black middleBtn" (click)="editTest(unmarkedTest._id)">
-                <span class="btnText">
-                  EDIT
-                </span>
+              <button class="btn-yellow mr-2 mb-2" nbbutton (click)="editTest(unmarkedTest._id)">
                 <span class="btnIcon">
                   <nb-icon icon="edit-outline"></nb-icon>
+                </span>
+                <span class="btnText">
+                  Edit
                 </span>
               </button>
               <button nbButton status="danger" (click)="deleteTest(unmarkedTest._id, i)">
@@ -106,7 +106,7 @@
               </div>
             </div>
             <div class="testBtns">
-              <button class="btn btn-yellow-black" (click)="editMarks(markedTest._id)">
+              <button class="btn-yellow-black" nbbutton (click)="editMarks(markedTest._id)">
                 <span class="btnText">
                   EDIT MARKS
                 </span>

@@ -59,12 +59,14 @@
     <hr />
     <div class="row">
       <div class="col-md-12">
-        <label>Your Comment :</label>
-        <angular-editor
+        <label style="display: block;">Your Comment :</label>
+        <textarea
+          nbInput
+          fullWidth
           rows="2"
           placeholder="Enter text here..."
           [(ngModel)]="userComment"
-        ></angular-editor>
+        ></textarea>
       </div>
     </div>
     <hr />

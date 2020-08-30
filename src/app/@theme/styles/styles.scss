@@ -79,6 +79,17 @@
   font-size: 80%;
 }
 
+.instituteNameLogo {
+  float: left;
+  .logo {
+    float: left;
+  }
+  .name {
+    float: left;
+    padding-left: 15px;
+  }
+}
+
 /*--SCROLL BAR--*/
 /* width */
 ::-webkit-scrollbar {
@@ -169,6 +180,30 @@
     padding-top: 0rem !important;
   }
 
+  .row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+
+    .col-sm-6 {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+  }
+
+  .instituteNameLogo {
+    width: 100%;
+    float: left;
+    .logo {
+      width: 10%;
+      float: left;
+    }
+    .name {
+      width: 90%;
+      float: left;
+      line-height: 25px;
+    }
+  }
+
   // .cdk-overlay-pane {
   //   background-color: rgba($color: #000000, $alpha: 0.2) !important;
   // }
@@ -176,5 +211,13 @@
 @media only screen and (max-width: 400px) {
   .header-container .user-name {
     display: none !important;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .header-container .user-name {
+    display: none !important;
+  }
+  .tabset {
+    display: block !important;
   }
 }
