@@ -163,13 +163,13 @@
         *ngFor="let notification of notifications; let i = index"
         [ngClass]="!notification.seen ? 'newNotification' : ''"
       >
-        <div style="cursor: pointer;">
+        <div style="cursor: pointer; position: relative;">
           <span
             (click)="openNotificationBox(notification, notificationDialog)"
             style="font-weight: bold;"
             >{{ notification.title }} </span
           ><span> ({{ notification.date }})</span>
-          <span style="position: absolute; right: 20px;"
+          <span style="position: absolute; right: 0px;"
             ><i
               (click)="deleteNotification(notification._id, i, notification.seen)"
               class="fa fa-trash"
