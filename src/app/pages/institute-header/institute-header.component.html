@@ -18,13 +18,12 @@
             {{ instituteHeaderDetails.name | uppercase }}
             <span class="planDiv">{{ instituteHeaderDetails.currentPlan | uppercase }}</span>
           </span>
-
-          <span class="float-right mr-3">
-            <span>Total Students: {{ instituteHeaderDetails.totalStudents }}</span
-            ><br />
-            <span>Total Batches: {{ instituteHeaderDetails.totalBatches }}</span>
-          </span>
         </div>
+        <span class="float-right mr-3">
+          <span>Total Students: {{ instituteHeaderDetails.totalStudents }}</span
+          ><br />
+          <span>Total Batches: {{ instituteHeaderDetails.totalBatches }}</span>
+        </span>
       </div>
     </nb-card-header>
   </nb-card>
