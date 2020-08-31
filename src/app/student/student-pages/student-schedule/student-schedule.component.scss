@@ -16,13 +16,13 @@
   font-size: 20px;
 }
 .date-block {
-  float: left;
   width: 70px;
   height: 70px;
+  display: inline-block;
   background-color: #ffd500;
+  vertical-align: top;
 }
 .meeting-details {
-  float: left;
   padding-left: 25px;
   width: 60%;
 }
@@ -36,6 +36,12 @@
   font-weight: bold;
   color: #a3a2a2;
 }
+.scheduleDetailBlock {
+  display: inline-block;
+}
+.scheduleDetailsContainer {
+  display: inline-block;
+}
 @media only screen and (max-width: 600px) {
   nb-card-body {
     padding: 0px;
@@ -43,5 +49,8 @@
   button {
     display: inline !important;
     padding: 8px !important;
+  }
+  .scheduleDetailBlock {
+    display: block;
   }
 }
