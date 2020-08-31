@@ -167,8 +167,10 @@
           <span
             (click)="openNotificationBox(notification, notificationDialog)"
             style="font-weight: bold;"
-            >{{ notification.title }} </span
-          ><span> ({{ notification.date }})</span>
+            >{{ notification.title }}
+          </span>
+          <span class="notificationText">{{ notification.message }}</span>
+          <span> ({{ constructDate(notification.date) }})</span>
           <span style="position: absolute; right: 0px;"
             ><i
               (click)="deleteNotification(notification._id, i, notification.seen)"
