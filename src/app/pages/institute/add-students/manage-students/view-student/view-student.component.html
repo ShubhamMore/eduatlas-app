@@ -108,7 +108,7 @@
         </div>
 
         <div>
-          <table class="table table-sm">
+          <table class="table table-sm hideMobile">
             <thead>
               <tr>
                 <th>Installment No.</th>
@@ -149,6 +149,73 @@
               </tr>
             </tbody>
           </table>
+          <div
+            *ngFor="let installment of student.fees.installments; let i = index"
+            [ngClass]="
+              installment.paidStatus === 'true'
+                ? ' showMobile paid-installment'
+                : 'showMobile unpaid-installment'
+            "
+          >
+            <table class="table table-sm" style="color: white;">
+              <tr>
+                <td>
+                  <strong>Installment No.</strong>
+                </td>
+                <td>Installment {{ i + 1 }}</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Installment Date</strong>
+                </td>
+                <td>{{ installment.paidOn }}</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Amount</strong>
+                </td>
+                <td>{{ installment.amount }}</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Pending Amount</strong>
+                </td>
+                <td>{{ installment.amountPending }}</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Payment Mode</strong>
+                </td>
+                <td>{{ installment.paymentMode }}</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Bank Details</strong>
+                </td>
+                <td>{{ installment.bankDetails }}</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Transaction Details</strong>
+                </td>
+                <td>{{ installment.transDetails }}</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Receipt</strong>
+                </td>
+                <td>
+                  <a
+                    class="receipt"
+                    href="#"
+                    (click)="openUrl(installment.receipt.secureUrl)"
+                    *ngIf="installment.paidStatus === 'true' && installment.receipt.secureUrl"
+                    >Receipt</a
+                  >
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
     </div>

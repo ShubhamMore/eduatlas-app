@@ -113,7 +113,9 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #c1c1c1;
 }
-
+.showMobile {
+  display: none;
+}
 @media only screen and (max-width: 600px) {
   nb-layout-column {
     padding: 0px !important;
@@ -152,6 +154,9 @@
   }
   .hideMobile {
     display: none;
+  }
+  .showMobile {
+    display: block;
   }
   .btn-yellow {
     padding: 0.6875rem 1.125rem;
