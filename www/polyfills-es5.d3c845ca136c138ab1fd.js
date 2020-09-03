@@ -17807,8 +17807,8 @@ if (typeof SVGElement.prototype.contains === 'undefined') {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! G:\Projects\EduAtlas\Eduatlas app build\eduatlas-app\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-polyfills.js */"./node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/es5-polyfills.js");
-module.exports = __webpack_require__(/*! G:\Projects\EduAtlas\Eduatlas app build\eduatlas-app\src\polyfills.ts */"./src/polyfills.ts");
+__webpack_require__(/*! E:\Projects\Freelance Projects\EduAtlas\eduatlas1\eduatlas-app\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-polyfills.js */"./node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/es5-polyfills.js");
+module.exports = __webpack_require__(/*! E:\Projects\Freelance Projects\EduAtlas\eduatlas1\eduatlas-app\src\polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })

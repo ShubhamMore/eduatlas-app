@@ -27,6 +27,7 @@ import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { MembershipComponent } from './membership/membership.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ProfileComponent } from './profile/profile.component';
+import { CheckoutModule } from './checkout/checkout.module';
 
 // import { InstAddDialogComponent } from './institute/add-institute/inst-add-dialog/inst-add-dialog.component';
 
@@ -49,6 +50,8 @@ import { ProfileComponent } from './profile/profile.component';
     NbDatepickerModule,
     NbInputModule,
     NbButtonModule,
+
+    CheckoutModule,
   ],
   declarations: [
     PagesComponent,

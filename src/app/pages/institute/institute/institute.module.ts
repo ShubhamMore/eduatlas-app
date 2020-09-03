@@ -40,6 +40,7 @@ import { ViewScheduleComponent } from '../../schedule/view-schedule/view-schedul
 
 import { AddLeadComponent } from '../../leads/add-leads/add-lead.component';
 import { ManageLeadComponent } from '../../leads/manage-leads/manage-lead.component';
+import { CheckoutModule } from '../../checkout/checkout.module';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,8 @@ import { ManageLeadComponent } from '../../leads/manage-leads/manage-lead.compon
     NbIconModule,
     NbToastrModule.forRoot(),
     FormsModule,
+
+    CheckoutModule,
   ],
 })
 export class InstituteModule {}

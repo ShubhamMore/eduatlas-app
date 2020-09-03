@@ -8,6 +8,7 @@ import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { MembershipComponent } from './membership/membership.component';
+import { SmsRechargeComponent } from './e-commerce/sms-recharge/sms-recharge.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'dashboard/:id',
         component: ECommerceComponent,
+      },
+      {
+        path: 'sms-recharge/:id',
+        component: SmsRechargeComponent,
       },
       {
         path: 'change-password',

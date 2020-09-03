@@ -30,6 +30,9 @@ export class AddInstituteComponent implements OnInit {
 
   imageRequired: boolean;
 
+  couponCode: string;
+  checkout: boolean;
+
   user: any;
 
   options: any;
@@ -87,6 +90,7 @@ export class AddInstituteComponent implements OnInit {
     this.display = true;
     this.invalidImage = false;
     this.imageRequired = false;
+    this.checkout = false;
     this.user = this.authService.getUser();
     this.paymentDetails = this.paymentService.getPaymentDetails();
 
@@ -406,6 +410,20 @@ export class AddInstituteComponent implements OnInit {
     this.stepper.next();
   }
 
+  onCheckout() {
+    this.checkout = true;
+  }
+
+  submitCheckout(event: any) {
+    this.couponCode = event;
+    this.cancelCheckout();
+    this.addInstitute(this.institute);
+  }
+
+  cancelCheckout() {
+    this.checkout = false;
+  }
+
   thirdFormSubmit() {
     this.thirdForm.markAsDirty();
     this.institute.category = this.thirdForm.value.category;
@@ -427,7 +445,7 @@ export class AddInstituteComponent implements OnInit {
 
     if (!this.edit) {
       // this.addInstituteAfterPayment(this.institute, '1233', '1234');
-      this.addInstitute(this.institute);
+      this.onCheckout();
     }
   }
 

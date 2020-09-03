@@ -1,3 +1,4 @@
+import { NbToastrService } from '@nebular/theme';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -45,13 +46,14 @@ export class ECommerceComponent implements OnInit {
   constructor(
     private api: ApiService,
     private router: Router,
-    private active: ActivatedRoute,
+    private route: ActivatedRoute,
     private authService: AuthService,
     private instituteService: InstituteService,
     private roleService: RoleAssignService,
     private menuService: MenuService,
+    private toastrService: NbToastrService,
   ) {
-    active.params.subscribe((val) => {
+    route.params.subscribe((val) => {
       // put the code from `ngOnInit` here
       this.ngOnInit();
     });
@@ -59,7 +61,7 @@ export class ECommerceComponent implements OnInit {
 
   ngOnInit() {
     this.display = false;
-    this.instituteId = this.active.snapshot.paramMap.get('id');
+    this.instituteId = this.route.snapshot.paramMap.get('id');
 
     MENU_ITEMS[2].link = '/pages/dashboard/' + this.instituteId;
     MENU_ITEMS[4].children[0].link =
@@ -110,25 +112,36 @@ export class ECommerceComponent implements OnInit {
   }
 
   getDashboardInfo(id: string) {
-    this.api.getDashboardInfo(id).subscribe((res: any) => {
-      this.classes = res.upcomingClass;
-      this.pendingFees = res.pendingFees;
-      this.newLeads = res.leads;
-      this.announcements = res.announcements;
-      // this.studentReq = res.studentRequests;
-      this.totalStudents = res.studentCount;
-      this.totalBatches = res.batchCount;
+    this.api.getDashboardInfo(id).subscribe(
+      (res: any) => {
+        this.classes = res.upcomingClass;
+        this.pendingFees = res.pendingFees;
+        this.newLeads = res.leads;
+        this.announcements = res.announcements;
+        // this.studentReq = res.studentRequests;
+        this.totalStudents = res.studentCount;
+        this.totalBatches = res.batchCount;
 
-      const instituteHeaderDetails = {
-        secure_url: this.myInstitute.institute.basicInfo.logo.secure_url,
-        name: this.myInstitute.institute.basicInfo.name,
-        currentPlan: this.myInstitute.institute.currentPlan,
-        totalStudents: this.totalStudents,
-        totalBatches: this.totalBatches,
-      };
+        const instituteHeaderDetails = {
+          secure_url: this.myInstitute.institute.basicInfo.logo.secure_url,
+          name: this.myInstitute.institute.basicInfo.name,
+          currentPlan: this.myInstitute.institute.currentPlan,
+          totalStudents: this.totalStudents,
+          totalBatches: this.totalBatches,
+        };
 
-      this.instituteService.setInstituteHeaderDetails(instituteHeaderDetails);
-    });
+        this.instituteService.setInstituteHeaderDetails(instituteHeaderDetails);
+      },
+      (error: any) => {
+        this.showToast('top-right', 'danger', error.message);
+        if (error.message === 'Please Activate Your Institute') {
+          this.router.navigate(['/pages/membership'], {
+            relativeTo: this.route,
+            queryParams: { type: 'renew', id: this.instituteId },
+          });
+        }
+      },
+    );
   }
 
   openUrl(url: any) {
@@ -145,7 +158,7 @@ export class ECommerceComponent implements OnInit {
 
   goToAnnouncement(announcement: string) {
     this.router.navigate(['/pages/communication/view-announcements', this.instituteId], {
-      relativeTo: this.active,
+      relativeTo: this.route,
       queryParams: { announcement },
     });
   }
@@ -209,5 +222,16 @@ export class ECommerceComponent implements OnInit {
         this.menuService.setMenuSeqList();
       });
     }
+  }
+
+  recharge() {
+    this.router.navigate(['/pages/sms-recharge', this.instituteId], { relativeTo: this.route });
+  }
+
+  showToast(position: any, status: any, message: any) {
+    this.toastrService.show(status, message, {
+      position,
+      status,
+    });
   }
 }

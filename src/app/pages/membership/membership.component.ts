@@ -31,6 +31,9 @@ export class MembershipComponent implements OnInit {
   paymentDetails: any;
   user: any;
 
+  couponCode: string;
+  checkout: boolean;
+
   type: any;
   memberShipTypes: string[] = ['new', 'renew'];
 
@@ -47,6 +50,7 @@ export class MembershipComponent implements OnInit {
 
   ngOnInit() {
     this.display = false;
+    this.checkout = false;
     this.route.queryParams.subscribe((param: Params) => {
       this.type = param.type;
       this.instituteId = param.id;
@@ -208,6 +212,34 @@ export class MembershipComponent implements OnInit {
     );
   }
 
+  onCheckout() {
+    this.checkout = true;
+  }
+
+  submitCheckout(event: any) {
+    this.couponCode = event;
+    this.cancelCheckout();
+    const orderDetails = {
+      userId: this.user._id,
+      userPhone: this.user.phone,
+      userName: this.user.name,
+      userEmail: this.user.email,
+      amount: this.paymentDetails.amount,
+      planType: this.paymentDetails.planType,
+      couponCode: this.couponCode,
+      amountType: 'new',
+    };
+    if (this.paymentDetails.amount === '0') {
+      this.activateInstitute(this.instituteId, null, null);
+    } else {
+      this.generateOrder(orderDetails);
+    }
+  }
+
+  cancelCheckout() {
+    this.checkout = false;
+  }
+
   activate(plan: any) {
     const amount = plan.amount;
     const planType = plan.planType;
@@ -218,16 +250,7 @@ export class MembershipComponent implements OnInit {
     if (this.type === 'new') {
       this.router.navigate(['/pages/institute/add-institute'], { relativeTo: this.route });
     } else if (this.type === 'renew' && this.instituteId) {
-      const orderDetails = {
-        userId: this.user._id,
-        userPhone: this.user.phone,
-        userName: this.user.name,
-        userEmail: this.user.email,
-        amount: this.paymentDetails.amount,
-        planType: this.paymentDetails.planType,
-        amountType: 'new',
-      };
-      this.generateOrder(orderDetails);
+      this.onCheckout();
     } else {
       this.showToast('top-right', 'danger', 'Invalid Payment Type or Institute');
     }
