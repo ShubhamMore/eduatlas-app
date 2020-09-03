@@ -29,3 +29,11 @@ p {
 ::ng-deep nb-layout-column {
   height: 80vw;
 }
+@media only screen and (max-width: 600px) {
+  .col-sm-12,
+  .col-sm-6,
+  .col-sm-4 {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+  }
+}
