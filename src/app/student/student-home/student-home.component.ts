@@ -12,6 +12,7 @@ export class StudentHomeComponent implements OnInit {
   announcements: any[] = [];
   schedules: any[] = [];
   tests: any[] = [];
+  onlineClasses: any[] = [];
 
   display: boolean = false;
   constructor(private instituteService: InstituteService, private studentService: StudentService) {}
@@ -43,6 +44,7 @@ export class StudentHomeComponent implements OnInit {
       this.tests = res.test;
       this.schedules = res.schedule;
       this.display = true;
+      this.onlineClasses = res.onlineClass;
     });
   }
 

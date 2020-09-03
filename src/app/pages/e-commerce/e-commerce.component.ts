@@ -38,6 +38,7 @@ export class ECommerceComponent implements OnInit {
   classes: any[] = [];
   pendingFees: any[] = [];
   announcements: any[] = [];
+  onlineClasses: any[] = [];
 
   totalStudents: any = 0;
   totalBatches: any = 0;
@@ -112,6 +113,7 @@ export class ECommerceComponent implements OnInit {
   }
 
   getDashboardInfo(id: string) {
+<<<<<<< HEAD
     this.api.getDashboardInfo(id).subscribe(
       (res: any) => {
         this.classes = res.upcomingClass;
@@ -142,6 +144,28 @@ export class ECommerceComponent implements OnInit {
         }
       },
     );
+=======
+    this.api.getDashboardInfo(id).subscribe((res: any) => {
+      this.classes = res.upcomingClass;
+      this.pendingFees = res.pendingFees;
+      this.newLeads = res.leads;
+      this.announcements = res.announcements;
+      this.onlineClasses = res.upcomingOnlineClasses;
+      // this.studentReq = res.studentRequests;
+      this.totalStudents = res.studentCount;
+      this.totalBatches = res.batchCount;
+
+      const instituteHeaderDetails = {
+        secure_url: this.myInstitute.institute.basicInfo.logo.secure_url,
+        name: this.myInstitute.institute.basicInfo.name,
+        currentPlan: this.myInstitute.institute.currentPlan,
+        totalStudents: this.totalStudents,
+        totalBatches: this.totalBatches,
+      };
+
+      this.instituteService.setInstituteHeaderDetails(instituteHeaderDetails);
+    });
+>>>>>>> f7b84b08c4a9ab8d8301f65584559ebf633cf470
   }
 
   openUrl(url: any) {

@@ -322,4 +322,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
   logout() {
     this.authService.logout();
   }
+  constructDate(dateInMillisecond: number) {
+    const date = new Date(dateInMillisecond);
+    return `${this.appendZero(date.getMonth() + 1)}-${this.appendZero(
+      date.getDate(),
+    )}-${date.getFullYear()}`;
+  }
+  appendZero(n: number): string {
+    if (n < 10) {
+      return '0' + n;
+    }
+    return '' + n;
+  }
 }

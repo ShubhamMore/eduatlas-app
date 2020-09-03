@@ -101,13 +101,47 @@
               <p class="text-center pt-5">No Upcoming Tests</p>
             </ng-template>
           </nb-tab>
+          <nb-tab tabTitle="Online Classes">
+            <div
+              class="table-responsive"
+              *ngIf="onlineClasses && onlineClasses.length > 0; else noOnlineClass"
+            >
+              <table class="table table-borderless">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Topic</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Batch</th>
+                    <th>Course</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let onlineClass of onlineClasses; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ onlineClass.onlineclass.topic }}</td>
+                    <td>
+                      {{ onlineClass.onlineclass.date }}
+                    </td>
+                    <td>{{ onlineClass.onlineclass.startTime }}</td>
+                    <td>{{ onlineClass.batchCode }}</td>
+                    <td>{{ onlineClass.courseName }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <ng-template #noOnlineClass>
+              <p class="text-center pt-5">No Upcoming Online Class</p>
+            </ng-template>
+          </nb-tab>
         </nb-tabset>
       </nb-card-body>
     </nb-card>
   </div>
 
   <div class="col-sm-4">
-    <nb-card class="card-height-2">
+    <nb-card class="card-height-2" style="display: none;">
       <nb-card-body>
         <div class="image-container">
           <img class="inst-logo" src="assets/img/home-yellow.png" alt="Institute" />

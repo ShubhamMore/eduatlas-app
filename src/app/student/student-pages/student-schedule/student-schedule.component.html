@@ -49,43 +49,36 @@
           </div>
         </nb-accordion-item-header>
         <nb-accordion-item-body>
-          <div class="table-responsive">
-            <table class="table table-borderless">
-              <tbody>
-                <ng-container *ngFor="let day of schedule.days; let j = index">
-                  <tr *ngIf="day.select">
-                    <td>
-                      <div class="date-block">
-                        <span class="day">{{ getDay(day.date) }}</span>
-                        <span class="month">{{ getMonth(day.date) }}</span>
-                      </div>
-                    </td>
-                    <td class="text-nowrap">
-                      <div class="meeting-details">
-                        <div class="detail1">Date: {{ getScheduleDate(day.date) }}</div>
-                        <div class="detail1">
-                          Time: {{ time(day.startTime) + ' to ' + time(day.endTime) }}
-                        </div>
-                      </div>
-                    </td>
-                    <td class="text-nowrap">
-                      <div class="meeting-details">
-                        <div class="detail1">Topic: {{ day.topic }}</div>
-                        <div class="detail1">
-                          Teacher: {{ schedule.teacherData[j].teacherName }}
-                        </div>
-                      </div>
-                    </td>
-                    <td class="text-nowrap">
-                      <div class="meeting-details">
-                        <div class="detail1">Course: {{ schedule.courseId }}</div>
-                        <div class="detail2">Batch: {{ schedule.batchId }}</div>
-                      </div>
-                    </td>
-                  </tr>
-                </ng-container>
-              </tbody>
-            </table>
+          <div *ngFor="let day of schedule.days; let j = index">
+            <div *ngIf="day.select">
+              <div class="date-block">
+                <span class="day">{{ getDay(day.date) }}</span>
+                <span class="month">{{ getMonth(day.date) }}</span>
+              </div>
+              <div class="scheduleDetailsContainer">
+                <span class="scheduleDetailBlock">
+                  <div class="meeting-details">
+                    <div class="detail1">Date: {{ getScheduleDate(day.date) }}</div>
+                    <div class="detail1">
+                      Time: {{ time(day.startTime) + ' to ' + time(day.endTime) }}
+                    </div>
+                  </div>
+                </span>
+
+                <span class="scheduleDetailBlock">
+                  <div class="meeting-details">
+                    <div class="detail1">Topic: {{ day.topic }}</div>
+                    <div class="detail1">Teacher: {{ schedule.teacherData[j].teacherName }}</div>
+                  </div>
+                </span>
+                <span class="scheduleDetailBlock">
+                  <div class="meeting-details">
+                    <div class="detail1">Course: {{ schedule.courseId }}</div>
+                    <div class="detail2">Batch: {{ schedule.batchId }}</div>
+                  </div>
+                </span>
+              </div>
+            </div>
           </div>
         </nb-accordion-item-body>
       </nb-accordion-item>
