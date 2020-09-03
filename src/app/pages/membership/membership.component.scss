@@ -111,6 +111,10 @@ nb-card-header {
 td {
   white-space: nowrap;
 }
+
+.hide {
+  display: none;
+}
 @include media-breakpoint-down(xl) {
   .pricingDiv {
     padding: 50px 20px;

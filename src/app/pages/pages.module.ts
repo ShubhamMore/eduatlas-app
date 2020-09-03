@@ -28,6 +28,7 @@ import { MembershipComponent } from './membership/membership.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CheckoutModule } from './checkout/checkout.module';
+import { SmsRechargeComponent } from './e-commerce/sms-recharge/sms-recharge.component';
 
 // import { InstAddDialogComponent } from './institute/add-institute/inst-add-dialog/inst-add-dialog.component';
 
@@ -57,6 +58,7 @@ import { CheckoutModule } from './checkout/checkout.module';
     PagesComponent,
     HomeComponent,
     ECommerceComponent,
+    SmsRechargeComponent,
     MembershipComponent,
     ChangePasswordComponent,
     ProfileComponent,
