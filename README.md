@@ -10,23 +10,24 @@ Eduatlus dependency
 4.angular-in-memory-web-api= ^0.8.0
 
 Folder Structure
-1.@core (Need to remove data from this folder)
+1.@core (Nebular Core)
 2.@theme -> components -> footer, header, search-input, tiny-mice, index.ts
 3.admin -> forgot-password
 -> login
 -> otp
 -> sign-up
+-> terns-&-conditions
+
 4.pages(project inner part start from here)
 -> communication(Feature Module) -> announcement(component)
 -> communication(moduel, routing-module)
 -> e-commerce(Institute Dashboard)
--> home (after Login landing page) shows multiple institutes   
- -> institute (Feature Module)
--> add-institute (component) -> manage-institute(component)
--> mime-type.validator.ts (Institute Logo Validation)
--> add-students(component) -> manage-students(active Students)
--> pending-student
--> attandance(component)(only add attandance)
+-> home (after Login loading page) shows multiple institutes
+-> institute (Feature Module)
+-> add-institute (component) -> manage-institute(component), view institute
+-> add-students(component) -> manage-students(active Students, pending students), view student
+
+-> attandance(component)(Add and edit attendance depends on schedule)
 -> branch-conf(Feature Module)
 -> add-batch -> manage-batch
 -> add-course -> manage-course
@@ -34,11 +35,13 @@ Folder Structure
 -> branch(module, routing-module)
 -> discount -> manage-discount
 -> receipt-conf -> manage-receipt
--> role-management (only add role)
+
+-> role-management (Add/edit/delete employee)
+
 -> institute(module, routing-module)
--> membership (component)
+-> membership (component, new and renew membership)
 -> miscellaneous (component) shows 404 error for undefined route
--> schedule -> add-schedule
+-> schedule -> add schedule, edit schedule, repeate schedule
 -> manage-schedule
 -> view-schedule
 -> page-menu.ts (shows sidebard menu)
@@ -60,7 +63,7 @@ services -> auth-interceptor(no use)
 
 ---
 
-app-routing.module (Pages, login, sign-Up)
+app-routing.module (Pages, login, sign-Up, otp, student)
 app.component.ts
 app.module.ts
 
@@ -68,7 +71,4 @@ app.module.ts
 
 GUARDS
 auth.guard.ts -> login
-bManager.guard.ts -> Branch Manger Guard
-counsellor.guard.ts
-institute.guard.ts
-teacher.guard.ts
+\
