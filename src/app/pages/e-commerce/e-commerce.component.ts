@@ -49,7 +49,7 @@ export class ECommerceComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private authService: AuthService,
-    private instituteService: InstituteService,
+    public instituteService: InstituteService,
     private roleService: RoleAssignService,
     private menuService: MenuService,
     private toastrService: NbToastrService,
