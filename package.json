@@ -57,6 +57,7 @@
     "chart.js": "^2.9.3",
     "ckeditor": "4.7.3",
     "classlist.js": "1.1.20150312",
+    "cordova-ios": "^5.1.1",
     "cordova-plugin-device": "^2.0.3",
     "core-js": "2.5.1",
     "echarts": "^4.0.2",
@@ -137,7 +138,8 @@
       "cordova-plugin-device": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   },
   "resolutions": {
