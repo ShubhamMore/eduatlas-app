@@ -18,6 +18,7 @@ import { RoleAssignService } from '../../../services/role/role-assign.service';
 import { NbWindowService } from '@nebular/theme';
 import { SocketioService } from '../../../services/chat.service';
 import { MenuController } from '@ionic/angular';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @Component({
   selector: 'ngx-header',
@@ -89,6 +90,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private chatService: SocketioService,
     private dialogService: NbDialogService,
     private menu: MenuController,
+    private localNotifications: LocalNotifications,
   ) {
     this.instituteChangeSubscription = this.instituteService.selectedInstitute.subscribe(
       (instituteId: any) => {
@@ -115,12 +117,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.socket.on('notify', (notification: any) => {
       this.notificationCount++;
       this.notifications.push(notification);
+      this.localNotifications.schedule({
+        id: 1,
+        title: 'New Message from ',
+        text: 'this is text',
+      });
     });
     /*Listeneing to messages*/
     this.socket.on('message', (message) => {
       if (!this.chatmessage[message.receiverId]) {
         this.openChatBoxForNewIncomingMessage(message);
       }
+      this.localNotifications.schedule({
+        id: 1,
+        title: 'New Message from ',
+        text: 'this is text',
+      });
       this.chatmessage[message.receiverId].messages.push(message.msg);
     });
   }

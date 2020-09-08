@@ -14,6 +14,7 @@ import { AuthInterceptor } from './services/auth-services/auth-interceptor/auth-
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 import { AuthGuard } from './services/auth-services/auth-guards/auth.guard';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -88,6 +89,10 @@ import { IonicModule } from '@ionic/angular';
   ],
   entryComponents: [TermsAndConditionsComponent],
   bootstrap: [AppComponent],
-  providers: [AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    LocalNotifications,
+  ],
 })
 export class AppModule {}
