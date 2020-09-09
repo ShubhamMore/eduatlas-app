@@ -7,12 +7,21 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="LocalNotification">
+        <param name="android-package" value="de.appplant.cordova.plugin.localnotification.LocalNotification" />
+    </feature>
+    <feature name="Permissions">
+        <param name="android-package" value="com.android.plugins.Permissions" />
+    </feature>
+    <feature name="Badge">
+        <param name="android-package" value="de.appplant.cordova.plugin.badge.Badge" />
+    </feature>
     <name>EduAtlas</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+       App For Institutes, Teachers and Students
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Eduatlas Team
+    <author email="contact@eduatlas.com" href="http://eduatlas.com">
+        Eduatlas
     </author>
     <content src="index.html" />
     <access origin="*" />

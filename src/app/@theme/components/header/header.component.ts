@@ -121,6 +121,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         id: 1,
         title: 'New Message from ',
         text: 'this is text',
+        trigger: { single: true },
       });
     });
     /*Listeneing to messages*/
