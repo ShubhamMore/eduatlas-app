@@ -16,18 +16,18 @@ export class AppComponent implements OnInit {
     private seoService: SeoService,
     private router: Router,
     private route: ActivatedRoute,
-    platform: Platform,
+    // platform: Platform,
     androidPermissions: AndroidPermissions,
   ) {
-    platform.ready().then(() => {
-      androidPermissions.requestPermissions([
-        androidPermissions.PERMISSION.CAMERA,
-        androidPermissions.PERMISSION.CALL_PHONE,
-        androidPermissions.PERMISSION.GET_ACCOUNTS,
-        androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE,
-        androidPermissions.PERMISSION.WRITE_EXTERNAL_STORAGE,
-      ]);
-    });
+    // platform.ready().then(() => {
+    androidPermissions.requestPermissions([
+      androidPermissions.PERMISSION.CAMERA,
+      androidPermissions.PERMISSION.CALL_PHONE,
+      androidPermissions.PERMISSION.GET_ACCOUNTS,
+      androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE,
+      androidPermissions.PERMISSION.WRITE_EXTERNAL_STORAGE,
+    ]);
+    // });
   }
 
   ngOnInit(): void {
